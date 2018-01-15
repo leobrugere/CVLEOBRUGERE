@@ -1,0 +1,20 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <p>COMPETENCES</p>
+
+        <div class="row">
+
+            {% for comps in comp %}
+
+                <div class="col s12 m6 l3">
+                    <h2 class="center"><i class="medium material-icons black-text">{{ comps.icon }}</i></h2>
+                    <h5 class="center">{{ comps.title }}</h5>
+                    <p class="center">{{ comps.liste | raw }}</p>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

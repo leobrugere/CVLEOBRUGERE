@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/materialize.css') }}"  media="screen,projection"/>
+</head>
+<body >
+
+<div>
+
+
+</div>
+
+<nav class="container">
+    <div class="nav-wrapper grey" >
+        <a href="{{ path('homepage') }}" class="brand-logo center"><i class="material-icons">home</i>Accueil</a>
+        <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="left hide-on-med-and-down">
+            <li><a href="{{ path('competences') }}">Compétences</a></li>
+            <li><a href="{{ path('cv') }}">CV</a></li>
+            <li><a href="{{ path('moi') }}">À propos de moi</a></li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</li>
+                <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+            {% else %}
+                <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+            {% endif %}
+
+        </ul>
+
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="{{ path('competences') }}">Compétences</a></li>
+            <li><a href="{{ path('cv') }}">CV</a></li>
+            <li><a href="{{ path('moi') }}">À propos de moi</a></li>
+
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <li> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</li>
+            <li><a href=href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+            {% else %}
+                <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+            {% endif %}
+
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    {% block fos_user_content %}
+    {% endblock fos_user_content %}
+</div>
+
+{% block body %}
+
+{% endblock body %}
+
+<script type="text/javascript" src="{{ asset('assets/js/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/materialize.min.js') }}"></script>
+<script>$(".button-collapse").sideNav();</script>

@@ -1,0 +1,38 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block body %}
+<div >
+   <img src="{{ asset('images/fond3.jpg') }}" style="filter: blur(6px);" width="100%" height="500">
+</div>
+
+<div class="row container">
+    <div class="col s12 m4 l4">
+        <a href="{{ path('competences') }}">
+            <div class="icon-block">
+                <h2 class="center black-text"><i class="material-icons medium" style="">check_circle</i></h2>
+                <h5 class="center blue-text">Compétences</h5>
+            </div>
+        </a>
+    </div>
+
+    <div class="col s12 m4 l4">
+        <a href="{{ path('cv') }}">
+            <div class="icon-block">
+                <h2 class="center black-text"><i class="material-icons medium" style="">import_contacts</i></h2>
+                <h5 class="center blue-text">Le Curriculum Vitae</h5>
+            </div>
+        </a>
+    </div>
+
+    <div class="col s12 m4 l4">
+        <a href="{{ path('moi') }}">
+            <div class="icon-block">
+                <h2 class="center black-text"><i class="material-icons medium" style="">perm_identity</i></h2>
+                <h5 class="center blue-text">Ma personne</h5>
+            </div>
+        </a>
+    </div>
+
+
+</div>
+{% endblock %}

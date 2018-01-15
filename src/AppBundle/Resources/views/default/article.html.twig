@@ -1,0 +1,35 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        {{ art.titre }}<br>
+
+        <div class="center">
+            <img src="{{ art.image }}" width="500px" height="500px">
+        </div>
+        <div>
+            {{ art.texte }} <br> <br>
+        </div>
+
+        {% for com in coms %}
+            <tr>
+                <td>{{ com.pseudo }} </td>
+                <br>
+                <td>{{ com.commentaire }} </td>
+                <br> <br>
+
+            </tr>
+
+        {% endfor %}
+
+        {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+
+        {{ form_end(form) }}
+
+
+
+    </div>
+
+{% endblock %}

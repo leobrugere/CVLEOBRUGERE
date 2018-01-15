@@ -1,0 +1,22 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block body %}
+    Mon blog
+
+    <div class="row">
+    {% for arts in art %}
+        <div class="col s12 m6">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{ arts.image }}">
+                    <span class="card-title">{{ arts.titre }}</span>
+                    <a href="{{ path('article', {'id': arts.id}) }}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <p>{{ arts.description }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
