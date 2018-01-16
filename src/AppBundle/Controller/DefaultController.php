@@ -6,6 +6,7 @@ use AppBundle\AppBundle;
 use AppBundle\Entity\Commentaires;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -93,7 +94,7 @@ class DefaultController extends Controller
         $form = $this->createFormBuilder($comment)
             ->add('pseudo', TextType::class)
             ->add('commentaire', TextareaType::class)
-            ->add('idArticle', IntegerType::class, ['data' => $id])
+            ->add('idArticle', HiddenType::class, ['data' => $id])
             ->add('Commenter', SubmitType::class)
             ->getForm();
 

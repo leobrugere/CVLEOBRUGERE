@@ -20,11 +20,12 @@
         <ul class="left hide-on-med-and-down">
             <li><a href="{{ path('competences') }}">Compétences</a></li>
             <li><a href="{{ path('cv') }}">CV</a></li>
-            <li><a href="{{ path('moi') }}">À propos de moi</a></li>
+            <li><a href="{{ path('moi') }}">Scolarité</a></li>
+            <li><a href="{{ path('blog') }}">Blog</a></li>
         </ul>
         <ul class="right hide-on-med-and-down">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                <li> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</li>
+                <li><a href="{{ path('sonata_admin_dashboard') }}"> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</a></li>
                 <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
             {% else %}
                 <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
